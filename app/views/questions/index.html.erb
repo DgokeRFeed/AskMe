@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="title-large mb">Вопросы</h2>
+
+  <% @questions.each do |question| %>
+    <% style = question.hidden? ? "semitransparent" : "" %>
+    <p class="mb-sm"><%= link_to "Вопрос #{question.id}", question, class: style %></p>
+  <% end %>
+
+  <p class="mt-lg">
+    <%= link_to "Задать вопрос", new_question_path, class: "button button-main" %>
+  </p>
+</div>

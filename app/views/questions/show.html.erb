@@ -1,0 +1,26 @@
+<div class="container">
+  <h2 class="title-middle mb">Вопрос <%= @question.id %></h2>
+
+  <p class="text-large mboth"><%= @question.body %></p>
+  <p class="text-small mb">User_id: <%= @question.user_id %></p>
+  <% if @question.hidden? %>
+    <p class="text-small semitransparent mb">Вопрос скрыт</p>
+  <% end %>
+
+  <div class="mboth">
+    <%= link_to fa_icon("pencil"), edit_question_path, class: "button-pink mr", title: "Редактировать вопрос" %>
+    <%= button_to fa_icon("trash-o"), question_path(@question), class: "button-pink mr",
+      method: :delete,
+      title: "Удалить вопрос",
+      form: {data: {turbo_confirm: 'Вы уверены, что хотите удалить вопрос?'}} %>
+
+    <% unless @question.hidden? %>
+      <%= button_to fa_icon("eye-slash"), hide_question_path, class: "button-pink mr",
+        method: :patch,
+        title: "Скрыть вопрос",
+        form: {data: {turbo_confirm: 'Вы уверены, что хотите скрыть вопрос?'}} %>
+    <% end %>
+  </div>
+  <p class="mt-lg"><%= link_to "Вернуться", questions_path %></p>
+
+</div>

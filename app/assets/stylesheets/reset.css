@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font_size: 100%;
+  font-weight: normal;
+}
+
+button {
+  border: none;
+
+  font-size: 100%;
+  text-decoration: underline;
+
+  background: none;
+  cursor: pointer;
+}
+
+.button_to {
+  display: inline;
+}

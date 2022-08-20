@@ -1,0 +1,20 @@
+.button {
+  border: 0;
+  padding: 8px 13px 7px;
+  display: inline-block;
+
+  font-size: 18px;
+  color: #F7F7F7;
+  text-decoration: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+.button-main {
+  background-color: #ff66b3;
+}
+
+.button-pink {
+  color: #ff66b3;
+}

@@ -15,7 +15,7 @@
       form: {data: {turbo_confirm: 'Вы уверены, что хотите удалить вопрос?'}} %>
 
     <% unless @question.hidden? %>
-      <%= button_to fa_icon("eye-slash"), hide_question_path, class: "button-pink mr",
+      <%= button_to fa_icon("eye-slash"), hide_question_path(@question), class: "button-pink mr",
         method: :patch,
         title: "Скрыть вопрос",
         form: {data: {turbo_confirm: 'Вы уверены, что хотите скрыть вопрос?'}} %>

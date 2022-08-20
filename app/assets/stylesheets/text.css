@@ -31,5 +31,5 @@ button {
 }
 
 .semitransparent {
-  color: rgba(102, 34, 204, 0.5);
+  opacity: 50%;
 }

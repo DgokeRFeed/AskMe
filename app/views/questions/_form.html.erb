@@ -1,0 +1,11 @@
+<%= form_with model: question do |form| %>
+  <p class="mb-sm"><%= form.label :body, "Текст вопроса" %></p>
+  <p class="mb-sm"><%= form.text_area :body, rows: 5, class: "form-text-area" %></p>
+
+  <p class="mb-sm"><%= form.label :user_id %></p>
+  <p class="mb-sm"><%= form.text_field :user_id, class: "form-text-field" %></p>
+
+  <p class="mt-lg">
+    <%= form.submit "Сохранить", class: "button button-main" %>
+  </p>
+<% end %>

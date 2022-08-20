@@ -1,0 +1,31 @@
+<div class="mb">
+  <%= question.body %>
+</div>
+
+<div class="text-small mb-sm">User_id: <%= question.user_id %></div>
+
+<div class="text-small question-footer">
+  <div class="semitransparent">
+    <%= l(question.created_at, format: :short) %>
+  </div>
+
+  <% if question.hidden? %>
+    <div class="text-small semitransparent">Вопрос скрыт</div>
+  <% end %>
+
+  <div class="text-right ">
+    <%= link_to fa_icon("pencil"), edit_question_path(question), class: "button-pink mr", title: "Редактировать вопрос" %>
+
+    <% unless question.hidden? %>
+      <%= button_to fa_icon("eye-slash"), hide_question_path(question), class: "button-pink mr",
+                    method: :patch,
+                    title: "Скрыть вопрос",
+                    form: {data: {turbo_confirm: 'Вы уверены, что хотите скрыть вопрос?'}} %>
+    <% end %>
+
+    <%= button_to fa_icon("trash-o"), question_path(question), class: "button-pink mr",
+                  method: :delete,
+                  title: "Удалить вопрос",
+                  form: {data: {turbo_confirm: 'Вы уверены, что хотите удалить вопрос?'}} %>
+  </div>
+</div>

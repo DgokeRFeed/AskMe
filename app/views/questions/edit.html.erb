@@ -1,16 +1,8 @@
 <div class="container">
+  <p class="mb-lg"><%= link_to fa_icon("chevron-left"), :back, class: "text-large", title: "Вернуться" %></p>
+
   <h2 class="title-large mb">Вопрос <%= @question.id %></h2>
 
-  <%= form_with model: @question do |form| %>
-    <p class="mb-sm"><%= form.label :body, "Текст вопроса" %></p>
-    <p class="mb-sm"><%= form.text_area :body, rows: 5, class: "form-text-area" %></p>
+  <%= render "form", question: @question  %>
 
-    <p class="mb-sm"><%= form.label :user_id %></p>
-    <p class="mb-sm"><%= form.text_field :user_id, class: "form-text-field" %></p>
-
-    <p class="mt-lg">
-      <%= form.submit "Сохранить", class: "button button-main" %> или
-      <%= link_to "Вернуться", :back %>
-    </p>
-  <% end %>
 </div>

@@ -33,3 +33,8 @@ button {
 .text-small {
   font-size: 80%;
 }
+
+.text-bold {
+  font-weight: bold;
+}
+

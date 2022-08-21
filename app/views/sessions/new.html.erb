@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="title">Вход</h1>
+
+  <div class="mt">
+    <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
+      <p class="mb-sm"><%= form.label :email %></p>
+      <p class="mb"><%= form.text_field :email, class: "form-text-field" %></p>
+
+      <p class="mb-sm"><%= form.label :password %></p>
+      <p class="mb"><%= form.password_field :password, class: "form-text-field" %></p>
+
+      <p><%= form.submit "Войти", class: "button button-main mt"%></p>
+    <% end %>
+  </div>
+</div>

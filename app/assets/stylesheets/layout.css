@@ -29,3 +29,7 @@ body {
 .navbar a {
   text-decoration: none;
 }
+
+.right {
+  float: right;
+}

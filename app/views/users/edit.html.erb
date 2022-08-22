@@ -1,0 +1,36 @@
+<div class="container">
+  <h2 class="title">Редактирование профиля</h2>
+
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message| %>
+      <p class="text-red mt"><%= message %></p>
+    <% end %>
+  <% end %>
+
+  <div class="mt">
+    <%= form_with model: @user, data: {turbo: false} do |form| %>
+      <p class="mb-sm"><%= form.label :name, "Ваше имя" %></p>
+      <p class="mb"><%= form.text_field :name, class: "form-text-field" %></p>
+
+      <p class="mb-sm"><%= form.label :nickname, "Никнейм" %></p>
+      <p class="mb"><%= form.text_field :nickname, class: "form-text-field" %></p>
+
+      <p class="mb-sm">Если не хотите менять пароль, оставьте поля пустыми</p>
+
+      <p class="mb-sm"><%= form.label :password, "Пароль" %></p>
+      <p class="mb"><%= form.password_field :password, class: "form-text-field" %></p>
+
+      <p class="mb-sm"><%= form.label :password_confirmation, "Подтвердите пароль" %></p>
+      <p class="mb"><%= form.password_field :password_confirmation, class: "form-text-field" %></p>
+
+      <p>
+        <%= form.submit "Сохранить", class: "button button-main mt"%>
+        <span>или <%= link_to "Вернуться", :back %></span>
+        <%= button_to "Удалить страницу", user_path(@user),
+          class: "button button-gray mt right",
+          method: :delete,
+          form: {data: {turbo_confirm: 'Вы уверены, что хотите выйти из аккаунта?'}} %>
+      </p>
+    <% end %>
+  </div>
+</div>

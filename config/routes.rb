@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "questions#index"
+  root to: "sessions#new"
 
   resources :questions do
     member do

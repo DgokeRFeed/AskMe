@@ -10,6 +10,6 @@ class UsersController < ApplicationController
 
     session[:user_id] = user.id
 
-    redirect_to root_path, notice: "Вы успешно зарегистрировались"
+    redirect_to questions_path, notice: "Вы успешно зарегистрировались"
   end
 end

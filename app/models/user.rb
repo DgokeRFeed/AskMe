@@ -6,12 +6,12 @@ class User < ApplicationRecord
   validates :email,
             presence: true,
             uniqueness: true,
-            format: { with: /\A[a-zA-z\d]+@[a-zA-z\d]+\.[a-zA-z\d]+\z/ }
+            format: { with: /\A[a-zA-Z\d]+@[a-zA-Z\d]+\.[a-zA-Z\d]+\z/ }
 
   validates :nickname,
             presence: true ,
             uniqueness: true,
-            format: { with: /\A[a-zA-z\d]\w+\z/ },
+            format: { with: /\A[a-zA-Z\d].\w*\z/ },
             length: { maximum: 40 }
 
   def downcase_nickname

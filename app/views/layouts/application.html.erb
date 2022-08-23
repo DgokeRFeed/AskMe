@@ -17,7 +17,7 @@
 
       <div>
         <% if current_user.present? %>
-          <span class="mr"><%= "@#{current_user.nickname}" %></span>
+          <span class="mr"><%= output_nickname(current_user) %></span>
 
           <%= button_to "Выйти", session_path,
             class: "button button-main",

@@ -26,11 +26,13 @@
       <p class="mt-lg">
         <%= form.submit "Сохранить", class: "button button-main"%>
         <span>или <%= link_to "Вернуться", :back %></span>
-        <%= button_to "Удалить страницу", user_path(@user),
-          class: "button button-gray mt right",
-          method: :delete,
-          form: {data: {turbo_confirm: 'Вы уверены, что хотите выйти из аккаунта?'}} %>
       </p>
     <% end %>
   </div>
+
+  <p class="mt-lg"><%= button_to "Удалить страницу", user_path(@user),
+                     class: "button button-gray",
+                     method: :delete,
+                     form: {data: {turbo_confirm: 'Вы уверены, что хотите выйти из аккаунта?'}} %>
+  </p>
 </div>

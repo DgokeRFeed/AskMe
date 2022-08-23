@@ -1,23 +1,31 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show edit update destroy hide]
 
-  def create
-    @question = Question.create(question_params)
-
-    redirect_to @question, notice: "Вопрос создан"
-  end
-
   def new
     @question = Question.new
   end
 
-  def update
-    @question.update(question_params)
+  def create
+    @question = Question.new(question_params)
 
-    redirect_to @question, notice: "Вопрос сохранен"
+    if @question.save
+      redirect_to @question, notice: "Вопрос создан"
+    else
+      flash.now[:alert] = "Создать вопрос не удалось"
+      render :new
+    end
   end
 
   def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to @question, notice: "Вопрос сохранен"
+    else
+      flash.now[:alert] = "Сохранить вопрос не удалось"
+      render :edit
+    end
   end
 
   def index

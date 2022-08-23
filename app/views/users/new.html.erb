@@ -3,28 +3,28 @@
 
   <% if @user.errors.any? %>
     <% @user.errors.full_messages.each do |message| %>
-      <p class="text-red"><%= message %></p>
+      <p class="text-red mt"><%= message %></p>
     <% end %>
   <% end %>
 
   <div class="mt">
     <%= form_with model: @user, data: {turbo: false} do |form| %>
-      <p class="mb-sm"><%= form.label :name, "Ваше имя" %></p>
-      <p class="mb"><%= form.text_field :name, class: "form-text-field" %></p>
+      <p class="mt"><%= form.label :name, "Ваше имя" %></p>
+      <p class="mt-sm"><%= form.text_field :name, class: "form-text-field" %></p>
 
-      <p class="mb-sm"><%= form.label :nickname, "Никнейм" %></p>
-      <p class="mb"><%= form.text_field :nickname, class: "form-text-field" %></p>
+      <p class="mt"><%= form.label :nickname, "Никнейм" %></p>
+      <p class="mt-sm"><%= form.text_field :nickname, class: "form-text-field" %></p>
 
-      <p class="mb-sm"><%= form.label :email %></p>
-      <p class="mb"><%= form.text_field :email, class: "form-text-field" %></p>
+      <p class="mt"><%= form.label :email %></p>
+      <p class="mt-sm"><%= form.text_field :email, class: "form-text-field" %></p>
 
-      <p class="mb-sm"><%= form.label :password, "Пароль" %></p>
-      <p class="mb"><%= form.password_field :password, class: "form-text-field" %></p>
+      <p class="mt"><%= form.label :password, "Пароль" %></p>
+      <p class="mt-sm"><%= form.password_field :password, class: "form-text-field" %></p>
 
-      <p class="mb-sm"><%= form.label :password_confirmation, "Подтвердите пароль" %></p>
-      <p class="mb"><%= form.password_field :password_confirmation, class: "form-text-field" %></p>
+      <p class="mt"><%= form.label :password_confirmation, "Подтвердите пароль" %></p>
+      <p class="mt-sm"><%= form.password_field :password_confirmation, class: "form-text-field" %></p>
 
-      <p><%= form.submit "Зарегистрироваться", class: "button button-main mt"%></p>
+      <p><%= form.submit "Зарегистрироваться", class: "button button-main mt-lg"%></p>
     <% end %>
   </div>
 </div>

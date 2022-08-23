@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   def new
     session[:current_time] = Time.now
@@ -16,6 +16,10 @@ class UsersController < ApplicationController
       flash.now[:alert] = "Неверно введены данные"
       render :new
     end
+  end
+
+  def show
+    redirect_to edit_user_path
   end
 
   def edit
@@ -41,7 +45,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :nickname, :email, :password, :password_confirmation, :header_color)
   end
 
   def set_user

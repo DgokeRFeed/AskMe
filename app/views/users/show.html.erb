@@ -12,24 +12,25 @@
   </div>
 </div>
 
-<div class="container mb-sm">
-  <%= link_to "Спроси меня", new_question_path(user_id: @user.id), class: "button button-main mb" %>
-
-  <p>
-    <%= render "questions/form", question: @question %>
-  </p>
-</div>
-
-<div class="container mb-sm">
-  <h2 class="title-large">
-    <%= @questions.count %>
-    <%= inclination(@questions.count, "вопрос", "вопроса", "вопросов") %>
-  </h2>
-</div>
-
-<% @questions.each do |question| %>
-  <% style = question.hidden? ? "semitransparent" : "" %>
-  <div class="container mb-sm <%= style %>">
-    <%= render question %>
+<% if @questions.any? %>
+  <div class="container mb-sm">
+    <p><%= render "questions/form", question: @question %></p>
   </div>
+
+  <div class="container mb-sm">
+    <h2 class="title-large">
+      <%= @questions.count %>
+      <%= inclination(@questions.count, "вопрос", "вопроса", "вопросов") %>
+    </h2>
+  </div>
+
+  <% @questions.each do |question| %>
+    <% style = question.hidden? ? "semitransparent" : "" %>
+    <div class="container mb-sm <%= style %>">
+      <%= render question %>
+    </div>
+  <% end %>
+<% else %>
+  <%= render "empty_state", user: @user %>
 <% end %>
+

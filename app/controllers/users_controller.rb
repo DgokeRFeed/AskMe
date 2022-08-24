@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :authorize_user, only: %i[edit update destroy]
 
   def new
     session[:current_time] = Time.now
@@ -19,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_to edit_user_path
+    @questions = @user.questions
+    @question = Question.new(user: @user)
   end
 
   def edit
@@ -50,5 +52,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def authorize_user
+    redirect_with_alert unless current_user == @user
   end
 end

@@ -1,0 +1,35 @@
+<div class="container mb-sm">
+  <div class="user-box">
+    <h2 class="title-large mt"><%= @user.name %></h2>
+
+    <% if current_user == @user %>
+      <p class="my mb-lg">
+        <%= link_to fa_icon("pencil"), edit_user_path(@user) %>
+      </p>
+    <% end %>
+
+    <p class="text-bold mt"><%= output_nickname(@user) %></p>
+  </div>
+</div>
+
+<div class="container mb-sm">
+  <%= link_to "Спроси меня", new_question_path(user_id: @user.id), class: "button button-main mb" %>
+
+  <p>
+    <%= render "questions/form", question: @question %>
+  </p>
+</div>
+
+<div class="container mb-sm">
+  <h2 class="title-large">
+    <%= @questions.count %>
+    <%= inclination(@questions.count, "вопрос", "вопроса", "вопросов") %>
+  </h2>
+</div>
+
+<% @questions.each do |question| %>
+  <% style = question.hidden? ? "semitransparent" : "" %>
+  <div class="container mb-sm <%= style %>">
+    <%= render question %>
+  </div>
+<% end %>

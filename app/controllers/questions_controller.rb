@@ -1,15 +1,18 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[show edit update destroy hide]
+  before_action :ensure_current_user, only: %i[edit update destroy hide]
+  before_action :set_question_for_current_user, only: %i[edit update destroy hide]
 
   def new
-    @question = Question.new
+    @user = User.find(params[:user_id])
+    @question = Question.new(user: @user)
   end
 
   def create
+    question_params = params.require(:question).permit(:body, :user_id)
     @question = Question.new(question_params)
 
     if @question.save
-      redirect_to @question, notice: "Вопрос создан"
+      redirect_to user_path(@question.user), notice: "Вопрос создан"
     else
       flash.now[:alert] = "Создать вопрос не удалось"
       render :new
@@ -20,8 +23,9 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    question_params = params.require(:question).permit(:body, :answer, :hidden)
     if @question.update(question_params)
-      redirect_to @question, notice: "Вопрос сохранен"
+      redirect_to user_path(@question.user), notice: "Вопрос сохранен"
     else
       flash.now[:alert] = "Сохранить вопрос не удалось"
       render :edit
@@ -34,12 +38,14 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @question = Question.find(params[:id])
   end
 
   def destroy
+    @user = @question.user
     @question.destroy
 
-    redirect_to questions_path, notice: "Вопрос удален"
+    redirect_to user_path(@user), notice: "Вопрос удален"
   end
 
   def hide
@@ -50,11 +56,11 @@ class QuestionsController < ApplicationController
 
   private
 
-  def question_params
-    params.require(:question).permit(:body, :user_id, :hidden)
+  def set_question_for_current_user
+    @question = current_user.questions.find(params[:id])
   end
 
-  def set_question
-    @question = Question.find(params[:id])
+  def ensure_current_user
+    redirect_with_alert unless current_user.present?
   end
 end

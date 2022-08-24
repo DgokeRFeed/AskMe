@@ -1,11 +1,4 @@
 <div class="container mb-sm">
-  <h1 class="title mb-lg">Задай вопрос</h1>
-  <p>
-    <%= render "form", question: @question %>
-  </p>
-</div>
-
-<div class="container mb-sm">
   <h2 class="title-large">
     <%= @questions.count %>
     <%= inclination(@questions.count, "вопрос", "вопроса", "вопросов") %>

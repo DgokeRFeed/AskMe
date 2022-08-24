@@ -6,11 +6,15 @@
 
 <div>
   <%= form_with model: question, data: { turbo: false } do |form| %>
-    <p class="mb-sm"><%= form.label :body, "Текст вопроса" %></p>
-    <p class="mb-sm"><%= form.text_area :body, rows: 5, class: "form-text-area" %></p>
+    <%= form.hidden_field :user_id %>
 
-    <p class="mb-sm"><%= form.label :user_id %></p>
-    <p class="mb-sm"><%= form.text_field :user_id, class: "form-text-field" %></p>
+    <p class="mb-sm"><%= form.label :body, "Текст вопроса" %></p>
+    <p class="mb"><%= form.text_area :body, rows: 5, class: "form-text-area" %></p>
+
+    <% if question.persisted? %>
+        <p class="mb-sm"><%= form.label :answer, "Ответ" %></p>
+        <p class="mb"><%= form.text_area :answer, rows: 5, class: "form-text-area" %></p>
+    <% end %>
 
     <p class="mt-lg">
       <%= form.submit "Сохранить", class: "button button-main" %>

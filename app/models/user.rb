@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :nickname,
             presence: true ,
             uniqueness: true,
-            format: { with: /\A[a-zA-Zа-яА-Я\d]([a-zA-Zа-яА-Я\d_]*[a-zA-Zа-яА-Я\d])?\Z/ },
+            format: { with: /\A[a-zA-Z\d]([a-zA-Z\d_]*[a-zA-Z\d])?\Z/ },
             length: { maximum: 40 }
 
   private

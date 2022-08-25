@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to root_path, notice: "Данные пользователя обновлены"
+      redirect_to user_path(@user), notice: "Данные пользователя обновлены"
     else
       flash.now[:alert] = "Сохранить данные не удалось!"
       render :edit
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
     session.delete(:user_id)
 
-    redirect_to new_session_path, notice: "Страница пользователя удалена"
+    redirect_to root_path, notice: "Страница пользователя удалена"
   end
 
   private

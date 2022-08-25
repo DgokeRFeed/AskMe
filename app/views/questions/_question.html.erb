@@ -1,3 +1,5 @@
+<div class="text-small mb"><%= question_author(question) %> задал вопрос <%= question_destination(question) %></div>
+
 <div class="mb">
   <%= simple_format(h(question.body)) %>
 </div>
@@ -7,10 +9,6 @@
     <%= question.answer %>
   </div>
 <% end %>
-
-<div class="text-small mb-sm">User_id: <%= question.user_id %></div>
-
-
 
 <div class="text-small question-footer">
   <div class="semitransparent">

@@ -1,7 +1,7 @@
 <div class="container">
   <p class="mb-lg"><%= link_to fa_icon("chevron-left"), :back, class: "text-large", title: "Вернуться" %></p>
   <h2 class="title-large mb-sm">Новый вопрос</h2>
-  <p class="text-small mb">для <%= link_to output_nickname(@user), user_path(@user) %></p>
+  <p class="text-small mb">для <%= question_destination(@question) %></p>
 
   <%= render "form", question: @question %>
 </div>

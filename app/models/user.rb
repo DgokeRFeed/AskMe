@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   has_many :questions, dependent: :delete_all
+  has_many :asked_questions, class_name: "Question", foreign_key: :author_id, dependent: :nullify
 
   has_secure_password
 
-  before_validation :downcase_nickname, :downcase_email
+  before_validation :downcase_attributes
 
   validates :email,
             presence: true,
@@ -18,11 +19,8 @@ class User < ApplicationRecord
 
   private
 
-  def downcase_nickname
-    nickname.downcase!
-  end
-
-  def downcase_email
-    email.downcase!
+  def downcase_attributes
+    nickname&.downcase!
+    email&.downcase!
   end
 end

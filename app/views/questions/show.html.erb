@@ -1,8 +1,6 @@
 <div class="container">
+  <p class="mb-lg"><%= link_to fa_icon("chevron-left"), :back, class: "text-large", title: "Вернуться" %></p>
   <h2 class="title-middle mb">Вопрос <%= @question.id %></h2>
 
   <%= render @question %>
-
-  <p class="mt-lg"><%= link_to "Вернуться", questions_path %></p>
-
 </div>

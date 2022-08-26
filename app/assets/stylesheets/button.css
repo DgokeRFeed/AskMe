@@ -9,6 +9,8 @@
   border-radius: 5px;
 
   cursor: pointer;
+
+  -webkit-appearance: none;
 }
 
 .button-main {

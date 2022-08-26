@@ -17,6 +17,9 @@ class User < ApplicationRecord
             format: { with: /\A[a-zA-Z\d]([a-zA-Z\d_]*[a-zA-Z\d])?\Z/ },
             length: { maximum: 40 }
 
+  validates :header_color,
+            format: { with: /\A\#[\da-fA-F]{6}\Z/}
+
   private
 
   def downcase_attributes

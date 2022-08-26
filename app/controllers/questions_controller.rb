@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
     @question.author = current_user
 
     if @question.save
-      redirect_to user_path(@question.user), notice: "Вопрос создан"
+      redirect_to question_path(@question), notice: "Вопрос создан"
     else
       flash.now[:alert] = "Создать вопрос не удалось"
       render :new
@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
   def update
     question_params = params.require(:question).permit(:body, :answer, :hidden)
     if @question.update(question_params)
-      redirect_to user_path(@question.user), notice: "Вопрос сохранен"
+      redirect_to question_path(@question), notice: "Вопрос сохранен"
     else
       flash.now[:alert] = "Сохранить вопрос не удалось"
       render :edit
@@ -34,8 +34,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @question = Question.new
-    @questions = Question.all.order(created_at: :desc)
+    @questions = Question.order(created_at: :desc).last(10)
+    @users = User.order(created_at: :desc).last(10)
   end
 
   def show

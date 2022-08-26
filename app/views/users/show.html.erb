@@ -7,6 +7,10 @@
       <% end %>
     </h2>
 
+    <div class="users-box mt">
+      <%= render "users/user_avatar", user: @user %>
+    </div>
+
     <p class="text-bold mt"><%= output_nickname(@user) %></p>
   </div>
 </div>

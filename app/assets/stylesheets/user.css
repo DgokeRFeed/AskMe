@@ -4,3 +4,47 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.users-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.users-box-user {
+  flex-basis: 100px;
+  flex-grow: 0;
+  height: 100px;
+  width: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+
+.users-box-user a {
+  color: white;
+  text-decoration: none;
+}
+
+.users-box-user-bg0 {
+  background-color: #7fa4e3;
+}
+
+.users-box-user-bg1 {
+  background-color: #e367ce;
+}
+
+.users-box-user-bg2 {
+  background-color: #e3a168;
+}
+
+.users-box-user-bg3 {
+  background-color: #bbe351;
+}
+
+.users-box-user-bg4 {
+  background-color: #62e3bc;
+}
+
+.rounded {
+  border-radius: 100%;
+}

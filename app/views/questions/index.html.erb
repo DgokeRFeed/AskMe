@@ -1,5 +1,15 @@
 <div class="container mb-sm">
+  <h2 class="title-large mb-lg">Недавно добавились</h2>
+  <div class="users-box">
+    <% @users.each do |user| %>
+      <%= render partial: "users/user_avatar", locals: {user: user} %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container mb-sm">
   <h2 class="title-large">
+    <%= inclination(@questions.count, "Крайний", "Крайние", "Крайние") %>
     <%= @questions.count %>
     <%= inclination(@questions.count, "вопрос", "вопроса", "вопросов") %>
   </h2>
@@ -8,6 +18,6 @@
 <% @questions.each do |question| %>
   <% style = question.hidden? ? "semitransparent" : "" %>
   <div class="container mb-sm <%= style %>">
-    <%= render "question", question: question %>
+    <%= render question %>
   </div>
 <% end %>

@@ -30,7 +30,28 @@
   margin-bottom: 1rem;
 }
 
+.mr-sm {
+  margin-right: 0.6rem;
+}
+
 .mr,
 .mr-md {
   margin-right: 1rem;
+}
+
+.mr-lg {
+  margin-right: 1.75rem;
+}
+
+.ml-sm {
+  margin-left: 0.6rem;
+}
+
+.ml,
+.ml-md {
+  margin-left: 1rem;
+}
+
+.ml-lg {
+  margin-left: 1.75rem;
 }

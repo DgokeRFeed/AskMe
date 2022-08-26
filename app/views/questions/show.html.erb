@@ -1,6 +1,13 @@
 <div class="container">
-  <p class="mb-lg"><%= link_to fa_icon("chevron-left"), :back, class: "text-large", title: "Вернуться" %></p>
-  <h2 class="title-middle mb">Вопрос <%= @question.id %></h2>
-
+  <p class="mb-lg"><%= link_to fa_icon("chevron-left"), user_path(@question.user), class: "text-large", title: "Вернуться" %></p>
+  <h2 class="title-middle mb-sm">Вопрос для <%= question_destination(@question) %></h2>
+  <div class="container mb-sm">
+    <h2 class="title-large mb-lg">Недавно добавились</h2>
+    <div class="users-box">
+      <% @users.each do |user| %>
+        <%= render partial: "users/user_avatar", locals: {user: user} %>
+      <% end %>
+    </div>
+  </div>
   <%= render @question %>
 </div>

@@ -20,6 +20,9 @@ class User < ApplicationRecord
   validates :header_color,
             format: { with: /\A\#[\da-fA-F]{6}\Z/}
 
+  include Gravtastic
+  gravtastic(secure: true, filetype: :png, size: 100, default: "identicon")
+
   private
 
   def downcase_attributes

@@ -8,6 +8,11 @@
   <% end %>
 
   <div class="mt">
+    <p><%= render "users/user_avatar", user: @user %></p>
+    <p>Чтобы добавить свой аватар - зарегистрируйтесь на <a href="Gravatar.com">Gravatar.com</a></p>
+  </div>
+
+  <div class="mt">
     <%= form_with model: @user, data: {turbo: false} do |form| %>
       <p class="mt"><%= form.label :name, "Ваше имя" %></p>
       <p class="mt-sm"><%= form.text_field :name, class: "form-text-field" %></p>

@@ -6,11 +6,14 @@
   <style>
     body {
       background-color: #88d5e7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .container {
-      width: 100%;
-      max-width: 800px;
+      width: 800px;
+      max-width: 100%;
       margin: 40px;
       padding: 20px;
       border-radius: 15px;
@@ -32,12 +35,10 @@
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div class="container">
-      <h1 class="text large">404</h1>
-      <p class="text">Такой страницы не существует</p>
-      <p class="text">либо она была перемешена по новому адресу</p>
-    </div>
+  <div class="container">
+    <h1 class="text large">404</h1>
+    <p class="text">Такой страницы не существует</p>
+    <p class="text">либо она была перемешена по новому адресу</p>
   </div>
 </body>
 </html>

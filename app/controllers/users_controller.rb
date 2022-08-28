@@ -52,6 +52,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find_by(nickname: params[:nickname])
+    not_found unless @user
   end
 
   def authorize_user

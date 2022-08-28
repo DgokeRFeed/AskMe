@@ -5,6 +5,6 @@
     </div>
     <p class="text-large mb">Почему здесь так тихо?</p>
     <p class="text-large mb-lg">Скорей задай свой вопрос!</p>
-    <%= link_to "Спросить #{output_nickname(user)}", new_question_path(user_id: user.id), class: "button button-main mb" %>
+    <%= link_to "Спросить #{output_nickname(user)}", new_question_path(user_nickname: user), class: "button button-main mb" %>
   </div>
 </div>

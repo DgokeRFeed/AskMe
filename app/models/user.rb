@@ -9,16 +9,16 @@ class User < ApplicationRecord
   validates :email,
             presence: true,
             uniqueness: true,
-            format: { with: /\A[a-zA-Z\d]+@[a-zA-Z\d]+\.[a-zA-Z\d]+\z/ }
+            format: { with: /\A[a-z\d]+@[a-z\d]+\.[a-z\d]+\z/ }
 
   validates :nickname,
             presence: true ,
             uniqueness: true,
-            format: { with: /\A[a-zA-Z\d]([a-zA-Z\d_]*[a-zA-Z\d])?\Z/ },
+            format: { with: /\A[a-z\d]([a-z\d_]*[a-z\d])?\z/ },
             length: { maximum: 40 }
 
   validates :header_color,
-            format: { with: /\A\#[\da-fA-F]{6}\Z/}
+            format: { with: /\A\#[\da-fA-F]{6}\z/}
 
   include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: "identicon")

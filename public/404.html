@@ -3,15 +3,33 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    .container {
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #fff1ff;
+      text-align: center;
+    }
+
+    .text {
+      margin-top: 15px;
+      font-size: 26px;
+      color: #6622cc;
+    }
+
+    .large {
+      font-size: 4rem;
+    }
+  </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div class="container">
-      <h1 class="title-large text-center mt">404</h1>
-      <p class="text-large text-center mt-lg">Такой страницы не существует</p>
-      <p class="text-large text-center mt  mb">либо она была перемешена по новому адресу</p>
+      <h1 class="text large">404</h1>
+      <p class="text">Такой страницы не существует</p>
+      <p class="text">либо она была перемешена по новому адресу</p>
     </div>
   </div>
 </body>

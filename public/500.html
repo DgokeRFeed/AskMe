@@ -3,15 +3,33 @@
 <head>
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    .container {
+      padding: 20px;
+      border-radius: 15px;
+      background-color: #fff1ff;
+      text-align: center;
+    }
+
+    .text {
+      margin-top: 15px;
+      font-size: 26px;
+      color: #6622cc;
+    }
+
+    .large {
+      font-size: 4rem;
+    }
+  </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/500.html -->
   <div class="dialog">
     <div class="container">
-      <h1 class="title-large text-center mt">500</h1>
-      <p class="text-large text-center mt-lg">Упс. Что-то пошло не так!</p>
-      <p class="text-large text-center mt  mb"></p>
+      <h1 class="text large">500</h1>
+      <p class="text">Упс. Что-то пошло не так!</p>
+      <p class="text"></p>
     </div>
 </body>
 </html>

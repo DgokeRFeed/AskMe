@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    render file: "#{Rails.root}/public/404.html", layout: true, status: :not_found
+    render file: "#{Rails.root}/public/404.html", status: :not_found
   end
 end

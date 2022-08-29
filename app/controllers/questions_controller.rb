@@ -39,8 +39,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find_by(id: params[:id])
-    not_found unless @question
+    @question = Question.find(params[:id])
   end
 
   def destroy

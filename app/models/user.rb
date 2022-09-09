@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Gravtastic
+
   has_many :questions, dependent: :delete_all
   has_many :asked_questions, class_name: "Question", foreign_key: :author_id, dependent: :nullify
 
@@ -20,7 +22,6 @@ class User < ApplicationRecord
   validates :header_color,
             format: { with: /\A\#[\da-fA-F]{6}\z/}
 
-  include Gravtastic
   gravtastic(secure: true, filetype: :png, size: 100, default: "identicon")
 
   def to_param

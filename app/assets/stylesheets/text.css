@@ -6,7 +6,7 @@ body {
 
 a,
 button {
-  color: #0f66ff;
+  color: #6622cc;
   text-decoration: none;
 }
 
@@ -45,6 +45,10 @@ button {
 
 .text-dark-pink {
   color: #df4693;
+}
+
+.text-blue {
+  color: #0f66ff;
 }
 
 .text-center {

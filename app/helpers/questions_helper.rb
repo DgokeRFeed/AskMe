@@ -13,7 +13,7 @@ module QuestionsHelper
 
   def text_with_hashtag_link(text)
     strip_tags(text).gsub(Hashtag::REGEX) do |hashtag|
-      link_to hashtag, hashtag_path(hashtag.delete("#")).downcase
+      link_to hashtag, hashtag_path(hashtag.delete("#").downcase)
     end
   end
 end

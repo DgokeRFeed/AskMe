@@ -1,5 +1,5 @@
 class Hashtag < ApplicationRecord
-  REGEX = /#[\w-]+/
+  REGEX = /#[\wа-яА-Я-]+/
 
   has_many :hashtag_questions, dependent: :destroy
   has_many :questions, through: :hashtag_questions

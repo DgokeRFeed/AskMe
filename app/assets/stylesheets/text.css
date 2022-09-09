@@ -6,7 +6,8 @@ body {
 
 a,
 button {
-  color: #6622cc;
+  color: #0f66ff;
+  text-decoration: none;
 }
 
 .semitransparent {

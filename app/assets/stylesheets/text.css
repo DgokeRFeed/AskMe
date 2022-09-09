@@ -6,7 +6,6 @@ body {
 
 a,
 button {
-  color: #6622cc;
   text-decoration: none;
 }
 
@@ -43,11 +42,13 @@ button {
   color: #cc0000
 }
 
-.text-dark-pink {
+.text-dark-pink,
+.text-dark-pink a{
   color: #df4693;
 }
 
-.text-blue {
+.text-blue,
+.text-blue a{
   color: #0f66ff;
 }
 

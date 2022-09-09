@@ -1,16 +1,16 @@
-<div class="text-small mb-lg"><%= question_author(question) %> задал вопрос пользователю <%= question_destination(question) %></div>
+<div class="text-small"><%= question_author(question) %> задал вопрос пользователю <%= question_destination(question) %></div>
 
-<div class="mb-lg question-line-break">
+<div class="question-line-break">
   <%= sanitize text_with_hashtag_link(question.body) %>
 </div>
 
 <% if question.answer.present? %>
-  <div class="mb-lg text-dark-pink question-line-break">
+  <div class="text-dark-pink question-line-break">
     <%= sanitize text_with_hashtag_link(question.answer) %>
   </div>
 <% end %>
 
-<div class="text-small question-footer">
+<div class="text-small question-footer mt-lg">
   <div class="semitransparent">
     <%= l(question.created_at, format: :short) %>
   </div>

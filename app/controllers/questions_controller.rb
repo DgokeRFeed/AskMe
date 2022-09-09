@@ -9,10 +9,10 @@ class QuestionsController < ApplicationController
 
   def create
     question_params = params.require(:question).permit(:body, :user_id)
-    @question = Question.new(question_params)
+    @question = Question.new
     @question.author = current_user
 
-    if @question.save
+    if QuestionSave.(question: @question, params: question_params)
       redirect_to question_path(@question), notice: "Вопрос создан"
     else
       flash.now[:alert] = "Создать вопрос не удалось"
@@ -25,7 +25,8 @@ class QuestionsController < ApplicationController
 
   def update
     question_params = params.require(:question).permit(:body, :answer, :hidden)
-    if @question.update(question_params)
+
+    if QuestionSave.(question: @question, params: question_params)
       redirect_to question_path(@question), notice: "Вопрос сохранен"
     else
       flash.now[:alert] = "Сохранить вопрос не удалось"
@@ -34,8 +35,9 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.order(created_at: :desc).first(10)
+    @questions = Question.includes(:user, :author).order(created_at: :desc).first(10)
     @users = User.order(created_at: :desc).first(10)
+    @hashtags = Hashtag.with_questions
   end
 
   def show

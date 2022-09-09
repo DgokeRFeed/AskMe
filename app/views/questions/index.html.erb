@@ -8,6 +8,11 @@
 </div>
 
 <div class="container mb-sm">
+  <h2 class="title-large mb-lg">Хештеги</h2>
+  <%= render @hashtags %>
+</div>
+
+<div class="container mb-sm">
   <h2 class="title-large">
     <%= inclination(@questions.count, "Крайний", "Крайние", "Крайние") %>
     <%= @questions.count %>

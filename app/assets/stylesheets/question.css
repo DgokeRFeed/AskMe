@@ -5,3 +5,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.question-line-break {
+  white-space: pre-line;
+}

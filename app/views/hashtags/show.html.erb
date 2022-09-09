@@ -1,0 +1,9 @@
+<div class="container mb-sm">
+  <h2 class="title-large">Вопросы по хэштегу <%= output_hashtag(@hashtag) %></h2>
+</div>
+
+<% @questions.each do |question| %>
+  <div class="container mb-sm">
+    <%= render question %>
+  </div>
+<% end %>
